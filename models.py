@@ -1,11 +1,11 @@
-from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy import Column, Integer, String
 from database import Base
 
-class Recipe(Base):
-    __tablename__ = "recipes"
+
+class User(Base):
+    __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String(100), nullable=False)
-    description = Column(Text, nullable=True)
-    ingredients = Column(Text, nullable=False)
-    instructions = Column(Text, nullable=False)
+    name = Column(String)
+    email = Column(String)
+    nickname = Column(String)
