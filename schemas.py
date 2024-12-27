@@ -1,9 +1,7 @@
 from pydantic import BaseModel
 
 
-class UserSchema(BaseModel):
-    id: int
+class RecipeCreate(BaseModel):
     name: str
-    email: str
-    nickname: str
-    
+    ingredients: str
+    instructions: str
