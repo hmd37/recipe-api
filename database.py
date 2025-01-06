@@ -25,5 +25,5 @@ def get_db():
     finally:
         db.close()
 
-# Initialize the database
+
 init_db()

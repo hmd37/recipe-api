@@ -3,7 +3,6 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from database import get_db
 from schemas import RecipeCreate
-from typing import List
 
 
 app = FastAPI()
@@ -15,7 +14,7 @@ def create_recipe(recipe: RecipeCreate, db: Session = Depends(get_db)):
     db.commit()
     return {"id": result.lastrowid, **recipe.model_dump()}
 
-@app.get("/recipes/", response_model=List[dict])
+@app.get("/recipes/", response_model=list[dict])
 def get_recipes(db: Session = Depends(get_db)):
     sql = text("SELECT * FROM recipes")
     result = db.execute(sql)
